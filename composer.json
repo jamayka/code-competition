@@ -1,13 +1,16 @@
 {
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "igorw/chicken": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "psr-0": {
-            "": "src/"
-        }
+        "files": [
+            "src/chicken.php"
+        ]
     }
 }

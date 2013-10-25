@@ -5,13 +5,12 @@ include __DIR__ .'/vendor/autoload.php';
 
 function doTest($offset, $total, $rowsPerPage, $maxNavigatorSize)
 {
-
-//----------------------------------------------------------------------------------------------------------------------
-// Invoke your page enumerator here
-//----------------------------------------------------------------------------------------------------------------------
-
-    $nav = new Navigator($rowsPerPage, $maxNavigatorSize);
-    return strval($nav->accept(array('total_rows' => $total, 'offset' => $offset)));
+    return igorw\chicken\execute(
+        igorw\chicken\compile(
+            chicken_paginator_source($offset, $total, $rowsPerPage, $maxNavigatorSize)
+        ),
+        null
+    );
 }
 
 assert_options(ASSERT_BAIL, 1);
